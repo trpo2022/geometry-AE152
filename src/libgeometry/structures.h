@@ -3,6 +3,7 @@
 #include <iostream>
 #include <math.h>
 #include <stdlib.h>
+#define _USE_MATH_DEFINES
 
 using namespace std;
 

@@ -1,9 +1,15 @@
 #include "structures.h"
 
+double cr_perimeter(Figure* figure)
+{
+    return (2 * M_PI * figure->circle.radius);
+}
+
 void printing_circle(Figure* figure)
 {
     cout << "circle(" << figure->circle.point.x << " " << figure->circle.point.y
          << ", " << figure->circle.radius << ")" << endl;
+    cout << "perimeter = " << cr_perimeter(figure) << endl << endl;
 }
 
 void recording_circle(string str_fgr, Figure* figure)
