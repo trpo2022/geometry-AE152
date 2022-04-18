@@ -32,7 +32,7 @@ void recording_triangle(string str_fgr, Figure* figure)
 
 double tr_perimeter(Figure* figure)
 {
-    double a = 0, b = 0, c = 0, perimeter = 0;
+    double perimeter = 0;
     double* x = new double[4];
     double* y = new double[4];
     for (int i = 0; i <= 3; i++) {
@@ -45,6 +45,21 @@ double tr_perimeter(Figure* figure)
     return perimeter;
 }
 
+double tr_area(Figure* figure)
+{
+    double area = 0;
+    double* x = new double[4];
+    double* y = new double[4];
+    for (int i = 0; i <= 3; i++) {
+        x[i] = figure->triangle.point[i].x;
+        y[i] = figure->triangle.point[i].y;
+    }
+    area = 0.5
+            * abs((x[1] - x[0]) * (y[2] - y[0])
+                  - (x[2] - x[0]) * (y[1] - y[0]));
+    return area;
+}
+
 void printing_traingle(Figure* figure)
 {
     cout << "triangle((";
@@ -54,5 +69,6 @@ void printing_traingle(Figure* figure)
     }
     cout << figure->triangle.point[3].x << " " << figure->triangle.point[3].y
          << "))" << endl;
-    cout << "perimeter = " << tr_perimeter(figure) << endl << endl;
+    cout << "perimeter = " << tr_perimeter(figure) << endl;
+    cout << "area = " << tr_area(figure) << endl << endl;
 }
