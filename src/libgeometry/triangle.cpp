@@ -1,9 +1,10 @@
 #include "triangle.h"
+#include <math.h>
 
-void recording_triangle(string str_fgr, Figure* figure)
+void recording_triangle(std::string str_fgr, Figure* figure)
 {
-    string x_tmp = "";
-    string y_tmp = "";
+    std::string x_tmp = "";
+    std::string y_tmp = "";
     int i = str_fgr.find("((", 0) + 2;
 
     for (int j = 0; j < 4; j++) { //цикл по всем x и y
@@ -62,13 +63,13 @@ double tr_area(Figure* figure)
 
 void printing_traingle(Figure* figure)
 {
-    cout << "triangle((";
+    std::cout << "triangle((";
     for (int j = 0; j < 3; j++) {
-        cout << figure->triangle.point[j].x << " "
-             << figure->triangle.point[j].y << ", ";
+        std::cout << figure->triangle.point[j].x << " "
+                  << figure->triangle.point[j].y << ", ";
     }
-    cout << figure->triangle.point[3].x << " " << figure->triangle.point[3].y
-         << "))" << endl;
-    cout << "perimeter = " << tr_perimeter(figure) << endl;
-    cout << "area = " << tr_area(figure) << endl << endl;
+    std::cout << figure->triangle.point[3].x << " "
+              << figure->triangle.point[3].y << "))" << std::endl;
+    std::cout << "perimeter = " << tr_perimeter(figure) << std::endl;
+    std::cout << "area = " << tr_area(figure) << std::endl << std::endl;
 }

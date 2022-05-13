@@ -1,4 +1,8 @@
 #include "structures.h"
+#include <iostream>
+#include <math.h>
+
+#define _USE_MATH_DEFINES
 
 double cr_perimeter(Figure* figure)
 {
@@ -12,17 +16,18 @@ double cr_area(Figure* figure)
 
 void printing_circle(Figure* figure)
 {
-    cout << "circle(" << figure->circle.point.x << " " << figure->circle.point.y
-         << ", " << figure->circle.radius << ")" << endl;
-    cout << "perimeter = " << cr_perimeter(figure) << endl;
-    cout << "area = " << cr_area(figure) << endl << endl;
+    std::cout << "circle(" << figure->circle.point.x << " "
+              << figure->circle.point.y << ", " << figure->circle.radius << ")"
+              << std::endl;
+    std::cout << "perimeter = " << cr_perimeter(figure) << std::endl;
+    std::cout << "area = " << cr_area(figure) << std::endl << std::endl;
 }
 
-void recording_circle(string str_fgr, Figure* figure)
+void recording_circle(std::string str_fgr, Figure* figure)
 {
-    string x_tmp = "";
-    string y_tmp = "";
-    string radius_tmp = "";
+    std::string x_tmp = "";
+    std::string y_tmp = "";
+    std::string radius_tmp = "";
     int i = str_fgr.find("(", 0) + 1;
 
     while (str_fgr[i] == ' ') //пропускаем пробелы перед первым числом

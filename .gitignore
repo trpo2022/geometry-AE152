@@ -1,2 +1,5 @@
-main
+bin/geometry
 .vscode/
+*.a
+*.d
+*.o

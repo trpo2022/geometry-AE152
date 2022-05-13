@@ -1,10 +1,11 @@
 #include "main_recording.h"
+#include <fstream>
 
-int amount_of_figures(string filename) //считает количество фигур
+int amount_of_figures(std::string filename) //считает количество фигур
 {
-    ifstream input(filename);
+    std::ifstream input(filename);
     if (!input.is_open()) {
-        cout << "File not found!" << endl;
+        std::cout << "File not found!" << std::endl;
         return 0;
     }
     int amount_strok = 1;
@@ -22,7 +23,7 @@ int amount_of_figures(string filename) //считает количество ф�
     return amount_strok;
 }
 
-int check_input(string* str_figures, int amount_figr)
+int check_input(std::string* str_figures, int amount_figr)
 {
     int balance_skobok = 0;
     for (int i = 0; i < amount_figr; i++) {
@@ -34,7 +35,7 @@ int check_input(string* str_figures, int amount_figr)
                 balance_skobok--;
         }
         if (balance_skobok != 0) {
-            cout << "Check brackets: " << str_figures[i] << endl;
+            std::cout << "Check brackets: " << str_figures[i] << std::endl;
             return -1;
         } else
             balance_skobok = 0;
@@ -42,9 +43,9 @@ int check_input(string* str_figures, int amount_figr)
     return 0;
 }
 
-int data_recording(string* str_figures, int amount_figr, Figure* figure)
+int data_recording(std::string* str_figures, int amount_figr, Figure* figure)
 {
-    string name_figure = "";
+    std::string name_figure = "";
     for (int i = 0; i < amount_figr; i++) {
         //цикл по каждому символу в строке
         for (int j = 0; j < (int)str_figures[i].length(); j++) {
@@ -56,7 +57,8 @@ int data_recording(string* str_figures, int amount_figr, Figure* figure)
                 else if (name_figure == "circle")
                     recording_circle(str_figures[i], &figure[i]);
                 else {
-                    cout << "Wrong figure name: " << str_figures[i] << endl;
+                    std::cout << "Wrong figure name: " << str_figures[i]
+                              << std::endl;
                     return -1;
                 }
                 name_figure = "";

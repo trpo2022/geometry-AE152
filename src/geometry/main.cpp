@@ -1,17 +1,19 @@
-#include <main_recording.h>
+#include "libgeometry/main_recording.h"
+#include <fstream>
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
     if (argc == 1)
-        cout << "нет входного файла" << endl;
-    string filename = argv[1];
-    ifstream input(filename);
+        std::cout << "нет входного файла" << std::endl;
+    std::string filename = argv[1];
+    std::ifstream input(filename);
     if (!input.is_open()) {
-        cout << "File not found!" << endl;
+        std::cout << "File not found!" << std::endl;
         return 0;
     }
     int amount_figr = amount_of_figures(filename);
-    string* str_figures = new string[amount_figr];
+    std::string* str_figures = new std::string[amount_figr];
     for (int i = 0; i < amount_figr; i++) {
         getline(input, str_figures[i]);
     }
