@@ -1,3 +1,4 @@
+#include "libgeometry/intersection_figures.h"
 #include "libgeometry/main_recording.h"
 #include <fstream>
 #include <iostream>
@@ -24,5 +25,7 @@ int main(int argc, char* argv[])
     if (data_recording(str_figures, amount_figr, figure) != 0) {
         return -1;
     }
+    std::cout << std::endl << std::endl;
+
     return 0;
 }

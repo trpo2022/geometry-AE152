@@ -1,4 +1,5 @@
 #include "main_recording.h"
+#include "intersection_figures.h"
 #include <fstream>
 
 int amount_of_figures(std::string filename) //считает количество фигур
@@ -8,7 +9,7 @@ int amount_of_figures(std::string filename) //считает количеств�
         std::cout << "File not found!" << std::endl;
         return 0;
     }
-    int amount_strok = 1;
+    int amount_strok = 0;
     bool flag = true;
     while (flag) {
         if (input.eof()) {
@@ -52,11 +53,11 @@ int data_recording(std::string* str_figures, int amount_figr, Figure* figure)
             if (str_figures[i][j] != '(')
                 name_figure += tolower(str_figures[i][j]);
             else {
-                if (name_figure == "triangle")
+                if (name_figure == "triangle") {
                     recording_triangle(str_figures[i], &figure[i]);
-                else if (name_figure == "circle")
+                } else if (name_figure == "circle") {
                     recording_circle(str_figures[i], &figure[i]);
-                else {
+                } else {
                     std::cout << "Wrong figure name: " << str_figures[i]
                               << std::endl;
                     return -1;
@@ -66,5 +67,7 @@ int data_recording(std::string* str_figures, int amount_figr, Figure* figure)
             }
         }
     }
+    int** arr = intersect_circle(figure, amount_figr);
+    printing_circle(figure, arr, amount_figr);
     return 0;
 }
