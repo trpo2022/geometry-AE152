@@ -1,5 +1,6 @@
-#include "main_recording.h"
+#include "circle.h"
 #include "intersection_figures.h"
+#include "triangle.h"
 #include <fstream>
 
 int amount_of_figures(std::string filename) //считает количество фигур
