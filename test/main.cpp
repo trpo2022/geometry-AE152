@@ -1,3 +1,4 @@
+#include <main_recording.h>
 #include <stdio.h>
 
 #define CTEST_MAIN

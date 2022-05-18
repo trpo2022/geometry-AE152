@@ -1,5 +1,5 @@
 bin/geometry
-bin/test
+bin/mytests
 .vscode/
 *.a
 *.d
