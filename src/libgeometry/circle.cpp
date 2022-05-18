@@ -4,23 +4,33 @@
 
 #define _USE_MATH_DEFINES
 
-double cr_perimeter(Figure* figure)
+double cr_perimeter(Figure figure)
 {
-    return (2 * M_PI * figure->circle.radius);
+    return (2 * M_PI * figure.circle.radius);
 }
 
-double cr_area(Figure* figure)
+double cr_area(Figure figure)
 {
-    return (M_PI * pow(figure->circle.radius, 2));
+    return (M_PI * pow(figure.circle.radius, 2));
 }
 
-void printing_circle(Figure* figure)
+void printing_circle(Figure* figure, int** arr, int amount_figr)
 {
-    std::cout << "circle(" << figure->circle.point.x << " "
-              << figure->circle.point.y << ", " << figure->circle.radius << ")"
-              << std::endl;
-    std::cout << "perimeter = " << cr_perimeter(figure) << std::endl;
-    std::cout << "area = " << cr_area(figure) << std::endl << std::endl;
+    for (int i = 0; i < amount_figr; i++) {
+        std::cout << i + 1 << ". circle(" << figure[i].circle.point.x << " "
+                  << figure[i].circle.point.y << ", " << figure[i].circle.radius
+                  << ")" << std::endl;
+        std::cout << "    perimeter = " << cr_perimeter(figure[i]) << std::endl;
+        std::cout << "    area = " << cr_area(figure[i]) << std::endl;
+        std::cout << "    intersects:" << std::endl;
+        for (int j = 0; j < amount_figr; j++) {
+            if (i == j)
+                continue;
+            if (arr[i][j] == 1)
+                std::cout << "        " << j + 1 << ".circle" << std::endl;
+        }
+        std::cout << std::endl;
+    }
 }
 
 void recording_circle(std::string str_fgr, Figure* figure)
@@ -59,5 +69,4 @@ void recording_circle(std::string str_fgr, Figure* figure)
     figure->circle.point.x = atof(x_tmp.c_str());
     figure->circle.point.y = atof(y_tmp.c_str());
     figure->circle.radius = atof(radius_tmp.c_str());
-    printing_circle(figure);
 }
