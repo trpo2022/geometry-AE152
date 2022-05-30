@@ -1,6 +1,6 @@
 APP_NAME = geometry
 LIB_NAME = libgeometry
-TEST_NAME = test
+TEST_NAME = mytests
 
 CFLAGS =   -Wall -Werror -I$(SRC_DIR)/$(LIB_NAME) -I$(LIB_TEST)
 CPPFLAGS = -I src -MP -MMD
@@ -15,6 +15,7 @@ LIB_TEST = thirdparty
 
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
+TEST_PATH = $(BIN_DIR)/$(TEST_NAME)
 
 SRC_EXT = cpp
 
@@ -50,6 +51,6 @@ obj/test/main.o: $(TEST_DIR)/main.cpp
 
 .PHONY: clean
 clean:
-	$(RM) $(APP_PATH) $(LIB_PATH)
+	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
 	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
 	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;

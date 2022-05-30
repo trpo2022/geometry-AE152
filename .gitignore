@@ -4,5 +4,3 @@ bin/mytests
 *.a
 *.d
 *.o
-!mytests.o
-!main.o
