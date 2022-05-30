@@ -1,0 +1,6 @@
+bin/geometry
+bin/mytests
+.vscode/
+*.a
+*.d
+*.o
